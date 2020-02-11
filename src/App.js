@@ -21,10 +21,6 @@ function App() {
     }
   }, [isDarkMode])
 
-  const handleClick = (bool) => {
-    setIsDarkMode(bool)
-  }
-
   return (
     <div className="App">
       <header className="header">
@@ -32,14 +28,14 @@ function App() {
           pass in the needed state and functions using props */}
         <div className="toggle">
           {/* add onClick to set dark mode to false */}
-          <button type="button" onClick={() => handleClick(false)}>☀</button>
+          <button type="button" onClick={() => setIsDarkMode(false)}>☀</button>
           <span className="toggle-control">
             {/* set checked equal to your dark mode boolean variable */}
-            <input className="modeCheck" id="modeCheck" type="checkbox" checked={isDarkMode} onChange={() => handleClick(!isDarkMode)} />
+            <input className="modeCheck" id="modeCheck" type="checkbox" checked={isDarkMode} onChange={() => setIsDarkMode(!isDarkMode)} />
             <label htmlFor="modeCheck" />
           </span>
           {/* add onClick to set dark mode to true */}
-          <button type="button" onClick={() => handleClick(true)}>☾</button>
+          <button type="button" onClick={() => setIsDarkMode(true)}>☾</button>
         </div>
       </header>
       <main className="main">
