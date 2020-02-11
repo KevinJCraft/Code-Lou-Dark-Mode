@@ -1,2 +1,3 @@
-# Code-Lou-Dark-Mode
-Created with CodeSandbox
+# dark-mode-toggle
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
