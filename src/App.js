@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Logo from './Logo';
 
 /* store your theme colors in 2 objects -
@@ -6,8 +6,24 @@ import Logo from './Logo';
 
 function App() {
   // assign a boolean variable for dark mode and store it in state
-
+  const [isDarkMode, setIsDarkMode] = useState(false);
   // update the theme colors whenever the dark mode state changes
+  useEffect(() => {
+    const root = document.documentElement
+    if (isDarkMode) {
+      root.style.setProperty('--color-bg', '#303846')
+      root.style.setProperty('--color-text', '#ffffff')
+      root.style.setProperty('--color-primary', '#09d3ac')
+    } else {
+      root.style.setProperty('--color-bg', '#ffffff')
+      root.style.setProperty('--color-text', '#303846')
+      root.style.setProperty('--color-primary', '#fc7e0f')
+    }
+  }, [isDarkMode])
+
+  const handleClick = (bool) => {
+    setIsDarkMode(bool)
+  }
 
   return (
     <div className="App">
@@ -16,14 +32,14 @@ function App() {
           pass in the needed state and functions using props */}
         <div className="toggle">
           {/* add onClick to set dark mode to false */}
-          <button type="button">☀</button>
+          <button type="button" onClick={() => handleClick(false)}>☀</button>
           <span className="toggle-control">
             {/* set checked equal to your dark mode boolean variable */}
-            <input className="modeCheck" id="modeCheck" type="checkbox" />
+            <input className="modeCheck" id="modeCheck" type="checkbox" checked={isDarkMode} onChange={() => handleClick(!isDarkMode)} />
             <label htmlFor="modeCheck" />
           </span>
           {/* add onClick to set dark mode to true */}
-          <button type="button">☾</button>
+          <button type="button" onClick={() => handleClick(true)}>☾</button>
         </div>
       </header>
       <main className="main">
