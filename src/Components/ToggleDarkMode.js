@@ -8,7 +8,7 @@ const ToggleDarkMode = ({ isDarkMode, setIsDarkMode }) => {
             <button type="button" onClick={() => setIsDarkMode(false)}>☀</button>
             <span className="toggle-control">
                 {/* set checked equal to your dark mode boolean variable */}
-                <input className="modeCheck" id="modeCheck" type="checkbox" checked={isDarkMode} onChange={() => setIsDarkMode(!isDarkMode)} />
+                <input className="modeCheck" id="modeCheck" type="checkbox" checked={isDarkMode} onChange={() => setIsDarkMode(prevMode => !prevMode)} />
                 <label htmlFor="modeCheck" />
             </span>
             {/* add onClick to set dark mode to true */}
